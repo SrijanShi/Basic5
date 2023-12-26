@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heads Or Tails</title>
+</head>
+<body>
+    <p>Heads Or Tails</p>
+    
+    <button onclick="calculateOutput('Head'); alert(`You selected Heads. ${result}`)">Heads</button>
+
+    <button onclick="calculateOutput('Tails'); alert(`You selected Tails. ${result}`)">Tails</button>
+
+    <script>
+        const num = Math.random();
+        let result = '';
+        function calculateOutput(playerSelect) {
+            if (playerSelect === 'Head') {
+                if (num >= 0 && num < 1/2) {
+                    result = 'You won';
+                } else if (num >= 1/2 && num < 1) {
+                    result = 'You lose';
+                }
+            } else if (playerSelect === 'Tails') {
+                if (num >= 0 && num < 1/2) {
+                    result = 'You lose';
+                } else if (num >= 1/2 && num < 1) {
+                    result = 'You win';
+                }
+            }
+        }
+        console.log(num);
+    </script>
+</body>
+</html>

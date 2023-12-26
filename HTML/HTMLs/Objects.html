@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Objects 
+        </title>
+    </head>
+    <body>
+        <script>
+            const obj = {
+                cloth: 'socks',
+                num: 123456789,
+                num2: 32145368 
+            };
+            console.log(obj.cloth);
+            console.log(obj.num);
+            console.log(obj.num2);
+            const product2 = {
+                name: 'shirt',
+                ['delivery-time']: '1 day',
+                rating: {
+                    stars: 4.5,
+                    count: 87
+                },
+                fun: function funtion(){
+                    console.log('function inside a object');
+                }
+            };
+            console.log(product2.name);
+            console.log(product2['delivery-time']);
+            console.log(product2.rating.count);
+            product2.fun();
+            let string_obj = JSON.stringify(product2);
+            console.log(string_obj);
+            let backObj = JSON.parse(string_obj);
+            console.log(backObj);
+            
+             //JSON.stringify() => used for the purpose of converting the object in the form that other languages can also understand the object.
+            //JSON.parse() => used to convert stringify objects to objects in javascript.
+
+            console.log('hello'.length);
+            console.log('hello'.toUpperCase());
+            //AutoBoxing: every string in javascript is first made an object and then saved and this process is called autoBoxing.
+
+            const{name} = product2;
+            //const = message = object4.message;
+        </script>
+    </body>
+</html>

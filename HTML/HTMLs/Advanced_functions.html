@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Advanced Functions</title>
+    </head>
+    <body>
+        <script>
+            /*function greeting(){
+                console.log('hello');
+            }*/
+           //functions are also values we can put functions in variables
+           const func1 = function greeting(){
+                console.log('hello');
+           };
+           const obj1 = {
+            num: 2,
+            fun: function(){
+                console.log('hello3');
+            }
+        };
+        //functions are a value so we can also use a function as a value in a function
+        function display(param){
+            console.log(param);
+        }
+        display(2);
+
+        setTimeout(function(){
+            console.log('timeout');
+        }, 3000);
+        setInterval(function(){
+            console.log('interval')
+        }, 3000);
+
+        </script>
+    </body>
+</html>

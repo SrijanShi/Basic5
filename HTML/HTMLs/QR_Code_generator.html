@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>QR Code Generator</title>
+        <style>
+            body{
+                background: linear-gradient(110deg, #ee4b05 60%, #f51313 60%);
+            }
+            .container{
+                width: 400px;
+                padding: 25px 35px;
+                position: absolute;
+                top: 50%;
+                left:50%;
+                transform: translate(-50%, -50%);
+                background: #fff;/*Makes the background white*/
+                border-radius: 10px;
+            }
+            .container p{
+                font-weight: 600;
+                font-size: 15px;
+                margin-bottom: 8px;
+            }
+            .container input{
+                width: 100%;
+                height: 50px;
+                border: 1px solid #b4ea49;
+                outline: 0;
+                padding: 10px;
+                margin: 10px 0 20px;
+                border-radius: 5px;
+            }
+            .container button{
+                width: 100%;
+                height: 50px;
+                background: #1af002;
+                color: #fff;
+                border: 0;
+                outline: 0;
+                border-radius: 5px;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                cursor: pointer;
+                margin: 20px 0;
+                font-weight: 500;
+            }
+            #imgBox {
+    width: 200px;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: max-height 0.3s ease; /* Add a transition for a smooth effect */
+}
+
+#imgBox img {
+    width: 100%; /* Ensure the image takes up 100% of the container */
+    height: auto; /* Maintain the image's aspect ratio */
+}
+
+.container.active #imgBox {
+    max-height: 200px; /* Adjust the max-height to a value that makes the image visible */
+}
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <p>Enter the text or URL</p>
+            <input type="text" placeholder="Text or URL" id="qrText">
+            <div id="imgBox">
+                <img src="" id="qrImage">
+            </div>
+            <button onclick="generateQR()">Generate QR Code</button>
+        </div>
+        
+        <script>
+            let imgBox = document.getElementById('imgBox');
+            let qrImage = document.getElementById('qrImage');
+            let qrText = document.getElementById('qrText');
+            
+            function generateQR() {
+                qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrText.value;
+            }
+        </script>
+        
+    </body>
+</html>

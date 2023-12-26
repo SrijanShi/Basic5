@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+    <p>Calculator</p>
+    <p>
+        <button onclick="AddToString('1')">1</button>
+        <button onclick="AddToString('2')">2</button>
+        <button onclick="AddToString('3')">3</button>
+        <button onclick="AddToString('+')">+</button>
+    </p>
+    <p>
+        <button onclick="AddToString('4')">4</button>
+        <button onclick="AddToString('5')">5</button>
+        <button onclick="AddToString('6')">6</button>
+        <button onclick="AddToString('-')">-</button>
+    </p>
+    <p>
+        <button onclick="AddToString('7')">7</button>
+        <button onclick="AddToString('8')">8</button>
+        <button onclick="AddToString('9')">9</button>
+        <button onclick="AddToString('*')">*</button>
+    </p>
+    <p>
+        <button onclick="AddToString('0')">0</button>
+        <button onclick="AddToString('.')">.</button>
+        <button onclick="CalculationDone(calculation)">=</button>
+        <button onclick="AddToString('/')">/</button>
+    </p>
+    <p>
+        <button onclick="calculation = ''; console.log(calculation);">Clear</button>
+    </p>
+    <script>
+        let calculation = '';
+
+        function AddToString(element) {
+            calculation += element;
+            console.log(calculation);
+        }
+
+        function CalculationDone() {
+            calculation = eval(calculation);
+            console.log(calculation);
+        }
+    </script>
+</body>
+</html>
