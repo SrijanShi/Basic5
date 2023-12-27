@@ -139,36 +139,33 @@
 
     <script>
         let progress = document.getElementById("progress");
-        let audio = document.getElementById("audio");
-        let ctrlIcon = document.getElementById("ctrlicon");
+let audio = document.getElementById("audio");
+let ctrlIcon = document.getElementById("ctrlicon");
 
-        audio.onloadedmetadata = function (){
-            progress.max = audio.duration;
-            progress.value = audio.currentTime;
-        }
+audio.onloadedmetadata = function () {
+    progress.max = audio.duration;
 
-        setInterval(() => {
-            progress.value = audio.currentTime;
-        }, 500);
+    setInterval(() => {
+        progress.value = audio.currentTime;
+    }, 500);
+};
 
-        progress.onchange = function(){
-            audio.play();
-            audio.currentTime = progress.value;
-            ctrlIcon.classList.add("fa-heart-pulse");
-            ctrlIcon.classList.remove("fa-heart");
-        }
+progress.oninput = function () {
+    audio.currentTime = progress.value;
+};
 
-        function playPause() {
-            if (ctrlIcon.classList.contains("fa-heart-pulse")) {
-                audio.pause();
-                ctrlIcon.classList.remove("fa-heart-pulse");
-                ctrlIcon.classList.add("fa-heart");
-            } else {
-                audio.play();
-                ctrlIcon.classList.add("fa-heart-pulse");
-                ctrlIcon.classList.remove("fa-heart");
-            }
-        }
+function playPause() {
+    if (ctrlIcon.classList.contains("fa-heart-pulse")) {
+        audio.pause();
+        ctrlIcon.classList.remove("fa-heart-pulse");
+        ctrlIcon.classList.add("fa-heart");
+    } else {
+        audio.play();
+        ctrlIcon.classList.add("fa-heart-pulse");
+        ctrlIcon.classList.remove("fa-heart");
+    }
+}
+
     </script>
 </body>
 </html>
